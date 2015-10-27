@@ -3,6 +3,9 @@
 # The purpose of this script is to show that if I have the secret_key_base
 # and a cookie to an active Rails session, I can decrypt it and gain access
 # to key information about the user's session.
+#
+# The code was adopted from this gist:  https://gist.github.com/pdfrod/9c3b6b6f9aa1dc4726a5 
+#
 
 require 'rubygems'
 require 'bundler/setup'
@@ -43,5 +46,5 @@ puts "Secrete Key Base?"
 input_key = gets.chomp
 secret_key_base = input_key unless input_key.empty?
 
-puts decrypt_session_cookie(session_cookie, secret_key_base)
+puts "\nSession:\n" + decrypt_session_cookie(session_cookie, secret_key_base)
 
